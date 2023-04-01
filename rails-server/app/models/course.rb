@@ -1,2 +1,7 @@
 class Course < ApplicationRecord
-end
+    has_many :student_courses
+    has_many :students, through: :student_courses
+  
+    validates :name, presence: true
+    validates :description, presence: true
+  end
