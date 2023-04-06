@@ -3,7 +3,7 @@ class StudentXCoursesController < ApplicationController
   
     # GET /student_x_courses
     def index
-      @student_x_courses = StudentXCourse.all
+      @student_x_courses = StudentXCourse.includes(:student, :course).all
   
       render json: @student_x_courses
     end
