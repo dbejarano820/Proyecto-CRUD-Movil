@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import CourseList from "./components/Course/CourseList";
 import StudentList from "./components/Student/StudentList";
-import MatriculaList from "./components/StudentCourse/StudentCourseList";
+import MatriculaList from "./components/Matricula/MatriculaList";
 
 const App = () => {
   return (
@@ -29,7 +29,7 @@ const App = () => {
             <StudentList />
           </Route>
           <Route path="/matricula">
-            <Matricula />
+            <MatriculaList />
           </Route>
         </Switch>
       </div>
