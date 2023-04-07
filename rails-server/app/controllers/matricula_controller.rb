@@ -1,9 +1,9 @@
-class MatriculaController < ApplicationController
+class MatriculaController < ApiController
     before_action :set_matricula, only: [:show, :update, :destroy]
   
     # GET /matriculas
     def index
-      @student_x_courses = Matricula.includes(:student, :course).all
+      @matriculas = Matricula.includes(:student, :course).all
   
       render json: @matriculas
     end

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../../api";
+import { getStudents, createStudent, updateStudent, deleteStudent } from "../../api";
 import StudentListItem from "./StudentListItem";
 import StudentForm from "./StudentForm";
 
@@ -11,42 +11,23 @@ const StudentList = () => {
   }, []);
 
   const fetchStudents = async () => {
-    try {
-      const response = await api.get("/students");
-      setStudents(response.data);
-    } catch (error) {
-      console.error("Error fetching students:", error);
-    }
+    const data = await getStudents();
+    setStudents(data);
   };
 
-  const handleCreateStudent = async (newStudent) => {
-    try {
-      const response = await api.post("/students", newStudent);
-      setStudents([...students, response.data]);
-    } catch (error) {
-      console.error("Error creating student:", error);
-    }
+  const handleCreateStudent = async (student) => {
+    const newStudent = await createStudent(student);
+    setStudents([...students, newStudent]);
   };
 
   const handleUpdateStudent = async (updatedStudent) => {
-    try {
-      await api.put(`/students/${updatedStudent.id}`, updatedStudent);
-      const updatedStudents = students.map((student) =>
-        student.id === updatedStudent.id ? updatedStudent : student
-      );
-      setStudents(updatedStudents);
-    } catch (error) {
-      console.error("Error updating student:", error);
-    }
+    await updateStudent(updatedStudent);
+    setStudents(students.map((student) => (student.id === updatedStudent.id ? updatedStudent : student)));
   };
 
   const handleDeleteStudent = async (id) => {
-    try {
-      await api.delete(`/students/${id}`);
-      setStudents(students.filter((student) => student.id !== id));
-    } catch (error) {
-      console.error("Error deleting student:", error);
-    }
+    await deleteStudent(id);
+    setStudents(students.filter((student) => student.id !== id));
   };
 
   return (
