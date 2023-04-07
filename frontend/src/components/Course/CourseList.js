@@ -14,6 +14,14 @@ const StyledHeader = styled.div`
   font-size: 32px;
   font-weight: bold;
   margin: 10px;
+  text-align: center;
+  text-decoration: underline;
+`;
+
+const StyledSubheader = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
 `;
 
 const CourseList = () => {
@@ -46,6 +54,7 @@ const CourseList = () => {
   return (
     <StyledContainer>
       <StyledHeader>Courses</StyledHeader>
+      <StyledSubheader>Agregue un curso nuevo:</StyledSubheader>
       <CourseForm onSubmit={handleCreate} />
       {courses.map((course) => (
         <CourseListItem key={course.id} course={course} onUpdate={handleUpdate} onDelete={handleDelete} />
