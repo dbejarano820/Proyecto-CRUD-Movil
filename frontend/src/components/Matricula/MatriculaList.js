@@ -1,7 +1,28 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { getMatriculas, createMatricula, updateMatricula, deleteMatricula, getStudents, getCourses } from "../../api";
 import MatriculaListItem from "./MatriculaListItem";
 import MatriculaForm from "./MatriculaForm";
+
+const StyledContainer = styled.div`
+  width: 100%
+  padding: 15px;
+  background-color: #fff;
+`;
+
+const StyledHeader = styled.div`
+  font-size: 32px;
+  font-weight: bold;
+  margin: 10px;
+  text-align: center;
+  text-decoration: underline;
+`;
+
+const StyledSubheader = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+`;
 
 const MatriculaList = () => {
   const [matriculas, setMatriculas] = useState([]);
@@ -45,8 +66,9 @@ const MatriculaList = () => {
   };
 
   return (
-    <div>
-      <h2>Matriculas</h2>
+    <StyledContainer>
+      <StyledHeader>Matriculas</StyledHeader>
+      <StyledSubheader>Realice una matricula:</StyledSubheader>
       <MatriculaForm students={students} courses={courses} onSubmit={handleCreate} />
       {matriculas.map((matricula) => (
         <MatriculaListItem
@@ -58,7 +80,7 @@ const MatriculaList = () => {
           onDelete={handleDelete}
         />
       ))}
-    </div>
+    </StyledContainer>
  );
 };
 
