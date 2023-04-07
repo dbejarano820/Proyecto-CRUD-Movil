@@ -1,5 +1,24 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import StudentForm from "./StudentForm";
+
+const StyledContainer = styled.div`
+  margin-bottom: 10px;
+  padding: 10px;
+`
+
+const StyledMiniContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`
+
+const StyledButtons = styled.div`
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+`
+
 
 const StudentListItem = ({ student, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -14,18 +33,22 @@ const StudentListItem = ({ student, onUpdate, onDelete }) => {
   };
 
   return (
-    <div>
+    <StyledContainer>
       {isEditing ? (
         <StudentForm student={student} onSubmit={handleUpdate} />
       ) : (
         <>
-          <div>{student.name}</div>
-          <div>{student.age}</div>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
+          <StyledMiniContainer>
+            <div><b>Name:</b> {student.name}</div>
+            <div><b>Age:</b> {student.age}</div>
+          </StyledMiniContainer>
+          <StyledButtons>
+            <button onClick={() => setIsEditing(true)}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+          </StyledButtons>
         </>
       )}
-    </div>
+    </StyledContainer>
   );
 };
 

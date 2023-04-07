@@ -1,7 +1,28 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { getStudents, createStudent, updateStudent, deleteStudent } from "../../api";
 import StudentListItem from "./StudentListItem";
 import StudentForm from "./StudentForm";
+
+const StyledContainer = styled.div`
+  width: 100%
+  padding: 15px;
+  background-color: #fff;
+`;
+
+const StyledHeader = styled.div`
+  font-size: 32px;
+  font-weight: bold;
+  margin: 10px;
+  text-align: center;
+  text-decoration: underline;
+`;
+
+const StyledSubheader = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+`;
 
 const StudentList = () => {
   const [students, setStudents] = useState([]);
@@ -31,8 +52,9 @@ const StudentList = () => {
   };
 
   return (
-    <div>
-      <h1>Students</h1>
+    <StyledContainer>
+      <StyledHeader>Students</StyledHeader>
+      <StyledSubheader>Agregue un estudiante nuevo:</StyledSubheader>
       <StudentForm onSubmit={handleCreateStudent} />
       {students.map((student) => (
         <StudentListItem
@@ -42,7 +64,7 @@ const StudentList = () => {
           onDelete={handleDeleteStudent}
         />
       ))}
-    </div>
+    </StyledContainer>
   );
 };
 
