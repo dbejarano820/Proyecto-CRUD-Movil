@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-    has_many :matriculas
+    has_many :matriculas, dependent: :destroy
     has_many :courses, through: :matriculas
   
     validates :name, presence: true

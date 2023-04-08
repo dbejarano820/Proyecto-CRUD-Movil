@@ -42,7 +42,7 @@ const MatriculaListItem = ({ matricula, students, courses, onUpdate, onDelete })
             <div><b>Estudiante:</b> {matricula.student_name}</div>
           </StyledMiniContainer>
           <StyledButtons>
-            <button onClick={() => setIsEditing(true)}>Edit</button>
+            {/* <button onClick={() => setIsEditing(true)}>Edit</button> */}
             <button onClick={handleDelete}>Delete</button>
           </StyledButtons>
         </>

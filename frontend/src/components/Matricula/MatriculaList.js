@@ -51,10 +51,19 @@ const MatriculaList = () => {
   };
 
   const handleCreate = async (matricula) => {
-    const newMatricula = await createMatricula(matricula);
-    setMatriculas([...matriculas, newMatricula]);
+    try {
+      const newMatricula = await createMatricula(matricula);
+  
+      if (newMatricula) {
+        setMatriculas([...matriculas, newMatricula]);
+      } else {
+        alert("Una matricula con el mismo estudiante y cursos ya existe.");
+      }
+    } catch (error) {
+      console.error("Error creating matricula:", error);
+      alert("An error occurred while creating the matricula.");
+    }
   };
-
   const handleUpdate = async (updatedMatricula) => {
     await updateMatricula(updatedMatricula);
     setMatriculas(matriculas.map((matricula) => (matricula.id === updatedMatricula.id ? updatedMatricula : matricula)));
