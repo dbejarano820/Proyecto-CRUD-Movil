@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { getCourses, createCourse, updateCourse, deleteCourse } from "../../api";
 import CourseListItem from "./CourseListItem";
 import CourseForm from "./CourseForm";
+import TabMenu from "../TabMenu";
 
 const StyledContainer = styled.div`
   width: 100%
@@ -53,6 +54,7 @@ const CourseList = () => {
 
   return (
     <StyledContainer>
+      <TabMenu />
       <StyledHeader>Courses</StyledHeader>
       <StyledSubheader>Agregue un curso nuevo:</StyledSubheader>
       <CourseForm onSubmit={handleCreate} />

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { getStudents, createStudent, updateStudent, deleteStudent } from "../../api";
 import StudentListItem from "./StudentListItem";
 import StudentForm from "./StudentForm";
+import TabMenu from "../TabMenu";
 
 const StyledContainer = styled.div`
   width: 100%
@@ -53,6 +54,7 @@ const StudentList = () => {
 
   return (
     <StyledContainer>
+      <TabMenu />
       <StyledHeader>Students</StyledHeader>
       <StyledSubheader>Agregue un estudiante nuevo:</StyledSubheader>
       <StudentForm onSubmit={handleCreateStudent} />

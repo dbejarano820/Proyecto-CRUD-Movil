@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { getMatriculas, createMatricula, updateMatricula, deleteMatricula, getStudents, getCourses } from "../../api";
 import MatriculaListItem from "./MatriculaListItem";
 import MatriculaForm from "./MatriculaForm";
+import TabMenu from "../TabMenu";
 
 const StyledContainer = styled.div`
   width: 100%
@@ -76,6 +77,7 @@ const MatriculaList = () => {
 
   return (
     <StyledContainer>
+      <TabMenu />
       <StyledHeader>Matriculas</StyledHeader>
       <StyledSubheader>Realice una matricula:</StyledSubheader>
       <MatriculaForm students={students} courses={courses} onSubmit={handleCreate} />
