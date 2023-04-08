@@ -19,12 +19,6 @@ const StyledInput = styled.input`
   width: 100%;
 `;
 
-const StyledTextArea = styled.textarea`
-  border: 1px solid #000;
-  border-radius: 4px;
-  width: 100%;
-`;
-
 const StyledButton = styled.button`
   border: 1px solid #000;
   border-radius: 4px;
