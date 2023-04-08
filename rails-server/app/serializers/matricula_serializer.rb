@@ -1,4 +1,4 @@
-class StudentXCourseSerializer < ActiveModel::Serializer
+class MatriculaSerializer < ActiveModel::Serializer
   attributes :id, :student_id, :course_id, :student_name, :course_name
 
   def student_name

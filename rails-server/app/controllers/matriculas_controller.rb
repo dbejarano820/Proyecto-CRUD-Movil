@@ -1,4 +1,4 @@
-class MatriculaController < ApiController
+class MatriculasController < ApiController
     before_action :set_matricula, only: [:show, :update, :destroy]
   
     # GET /matriculas
@@ -15,7 +15,7 @@ class MatriculaController < ApiController
   
     # POST /matriculas
     def create
-      @matricula = Matricula.new(student_course_params)
+      @matricula = Matricula.new(matricula_params)
   
       if @matricula.save
         render json: @matricula, status: :created, location: @matricula
@@ -27,9 +27,9 @@ class MatriculaController < ApiController
     # PATCH/PUT /matriculas/1
     def update
       if @matricula.update(matricula_params)
-        render json: @student_x_course
+        render json: @matricula
       else
-        render json: @student_x_course.errors, status: :unprocessable_entity
+        render json: @matricula.errors, status: :unprocessable_entity
       end
     end
   

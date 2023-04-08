@@ -1,4 +1,4 @@
-class StudentXCourse < ApplicationRecord
+class Matricula < ApplicationRecord
   belongs_to :student
   belongs_to :course
 

@@ -32,7 +32,12 @@ const MatriculaForm = ({ matricula, students, courses, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ id: matricula?.id, studentId, courseId });
+    onSubmit({
+      matricula: {
+        student_id: studentId, 
+        course_id: courseId,
+      },
+    });
   };
 
   return (

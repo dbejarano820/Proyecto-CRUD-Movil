@@ -22,9 +22,6 @@ const StyledButtons = styled.div`
 const MatriculaListItem = ({ matricula, students, courses, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const student = students.find((s) => s.id === matricula.studentId);
-  const course = courses.find((c) => c.id === matricula.courseId);
-
   const handleUpdate = (updatedMatricula) => {
     setIsEditing(false);
     onUpdate(updatedMatricula);
@@ -41,8 +38,8 @@ const MatriculaListItem = ({ matricula, students, courses, onUpdate, onDelete })
       ) : (
         <>
           <StyledMiniContainer>
-            <div><b>Curso:</b> {course ? course.name : "Unknown course"}</div>
-            <div><b>Estudiante:</b> {student ? student.name : "Unknown student"}</div>
+            <div><b>Curso:</b> {matricula.course_name}</div>
+            <div><b>Estudiante:</b> {matricula.student_name}</div>
           </StyledMiniContainer>
           <StyledButtons>
             <button onClick={() => setIsEditing(true)}>Edit</button>
