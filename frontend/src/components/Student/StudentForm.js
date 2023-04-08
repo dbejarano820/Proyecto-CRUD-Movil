@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   border-radius: 4px;
   width: 50%;
   height: 30px;
-`
+`;
 
 const StudentForm = ({ student, onSubmit }) => {
   const [name, setName] = useState(student?.name || "");
@@ -33,8 +33,8 @@ const StudentForm = ({ student, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({ id: student?.id, name, age: Number(age) });
-    setName('');
-    setAge('');
+    setName("");
+    setAge("");
   };
 
   return (

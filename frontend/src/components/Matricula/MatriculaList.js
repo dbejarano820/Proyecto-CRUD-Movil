@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { getMatriculas, createMatricula, updateMatricula, deleteMatricula, getStudents, getCourses } from "../../api";
+import {
+  getMatriculas,
+  createMatricula,
+  updateMatricula,
+  deleteMatricula,
+  getStudents,
+  getCourses,
+} from "../../api";
 import MatriculaListItem from "./MatriculaListItem";
 import MatriculaForm from "./MatriculaForm";
 import TabMenu from "../TabMenu";
@@ -54,7 +61,7 @@ const MatriculaList = () => {
   const handleCreate = async (matricula) => {
     try {
       const newMatricula = await createMatricula(matricula);
-  
+
       if (newMatricula) {
         setMatriculas([...matriculas, newMatricula]);
       } else {
@@ -67,7 +74,11 @@ const MatriculaList = () => {
   };
   const handleUpdate = async (updatedMatricula) => {
     await updateMatricula(updatedMatricula);
-    setMatriculas(matriculas.map((matricula) => (matricula.id === updatedMatricula.id ? updatedMatricula : matricula)));
+    setMatriculas(
+      matriculas.map((matricula) =>
+        matricula.id === updatedMatricula.id ? updatedMatricula : matricula
+      )
+    );
   };
 
   const handleDelete = async (id) => {
@@ -80,7 +91,11 @@ const MatriculaList = () => {
       <TabMenu />
       <StyledHeader>Matriculas</StyledHeader>
       <StyledSubheader>Realice una matricula:</StyledSubheader>
-      <MatriculaForm students={students} courses={courses} onSubmit={handleCreate} />
+      <MatriculaForm
+        students={students}
+        courses={courses}
+        onSubmit={handleCreate}
+      />
       {matriculas.map((matricula) => (
         <MatriculaListItem
           key={matricula.id}
@@ -92,7 +107,7 @@ const MatriculaList = () => {
         />
       ))}
     </StyledContainer>
- );
+  );
 };
 
 export default MatriculaList;

@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_URL = 'http://localhost:4000';
+const API_URL = "http://localhost:4000";
 
 // Students
 export const getStudents = async () => {
@@ -8,7 +8,7 @@ export const getStudents = async () => {
     const response = await axios.get(`${API_URL}/students`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching students:', error);
+    console.error("Error fetching students:", error);
     return [];
   }
 };
@@ -18,7 +18,7 @@ export const createStudent = async (student) => {
     const response = await axios.post(`${API_URL}/students`, student);
     return response.data;
   } catch (error) {
-    console.error('Error creating student:', error);
+    console.error("Error creating student:", error);
     return null;
   }
 };
@@ -47,7 +47,7 @@ export const getCourses = async () => {
     const response = await axios.get(`${API_URL}/courses`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching courses:', error);
+    console.error("Error fetching courses:", error);
     return [];
   }
 };
@@ -57,7 +57,7 @@ export const createCourse = async (course) => {
     const response = await axios.post(`${API_URL}/courses`, course);
     return response.data;
   } catch (error) {
-    console.error('Error creating course:', error);
+    console.error("Error creating course:", error);
     return null;
   }
 };
@@ -86,7 +86,7 @@ export const getMatriculas = async () => {
     const response = await axios.get(`${API_URL}/matriculas`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching matriculas:', error);
+    console.error("Error fetching matriculas:", error);
     return [];
   }
 };
@@ -96,7 +96,7 @@ export const createMatricula = async (matricula) => {
     const response = await axios.post(`${API_URL}/matriculas`, matricula);
     return response.data;
   } catch (error) {
-    console.error('Error creating matricula:', error);
+    console.error("Error creating matricula:", error);
     return null;
   }
 };
@@ -116,5 +116,5 @@ export const deleteMatricula = async (id) => {
     await axios.delete(`${API_URL}/matriculas/${id}`);
   } catch (error) {
     console.error(`Error deleting matricula (ID: ${id}):`, error);
-}
+  }
 };

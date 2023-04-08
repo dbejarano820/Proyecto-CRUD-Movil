@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledForm = styled.form`
   display: flex;
@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   border-radius: 4px;
   width: 50%;
   height: 30px;
-`
+`;
 
 const CourseForm = ({ course, onSubmit }) => {
   const [name, setName] = useState(course?.name || "");
@@ -39,8 +39,8 @@ const CourseForm = ({ course, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({ id: course?.id, name, description });
-    setName('');
-    setDescription('');
+    setName("");
+    setDescription("");
   };
 
   return (

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { getStudents, createStudent, updateStudent, deleteStudent } from "../../api";
+import {
+  getStudents,
+  createStudent,
+  updateStudent,
+  deleteStudent,
+} from "../../api";
 import StudentListItem from "./StudentListItem";
 import StudentForm from "./StudentForm";
 import TabMenu from "../TabMenu";
@@ -44,7 +49,11 @@ const StudentList = () => {
 
   const handleUpdateStudent = async (updatedStudent) => {
     await updateStudent(updatedStudent);
-    setStudents(students.map((student) => (student.id === updatedStudent.id ? updatedStudent : student)));
+    setStudents(
+      students.map((student) =>
+        student.id === updatedStudent.id ? updatedStudent : student
+      )
+    );
   };
 
   const handleDeleteStudent = async (id) => {

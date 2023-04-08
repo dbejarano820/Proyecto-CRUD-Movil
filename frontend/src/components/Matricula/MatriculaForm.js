@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   border-radius: 4px;
   width: 50%;
   height: 30px;
-`
+`;
 
 const MatriculaForm = ({ matricula, students, courses, onSubmit }) => {
   const [studentId, setStudentId] = useState(matricula?.studentId || "");
@@ -34,7 +34,7 @@ const MatriculaForm = ({ matricula, students, courses, onSubmit }) => {
     e.preventDefault();
     onSubmit({
       matricula: {
-        student_id: studentId, 
+        student_id: studentId,
         course_id: courseId,
       },
     });
@@ -42,7 +42,10 @@ const MatriculaForm = ({ matricula, students, courses, onSubmit }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledSelect value={studentId} onChange={(e) => setStudentId(e.target.value)}>
+      <StyledSelect
+        value={studentId}
+        onChange={(e) => setStudentId(e.target.value)}
+      >
         <option value="">Select a student</option>
         {students.map((student) => (
           <option key={student.id} value={student.id}>
@@ -50,7 +53,10 @@ const MatriculaForm = ({ matricula, students, courses, onSubmit }) => {
           </option>
         ))}
       </StyledSelect>
-      <StyledSelect value={courseId} onChange={(e) => setCourseId(e.target.value)}>
+      <StyledSelect
+        value={courseId}
+        onChange={(e) => setCourseId(e.target.value)}
+      >
         <option value="">Select a course</option>
         {courses.map((course) => (
           <option key={course.id} value={course.id}>

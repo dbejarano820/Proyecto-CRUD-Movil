@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styled from 'styled-components';
-import { getCourses, createCourse, updateCourse, deleteCourse } from "../../api";
+import styled from "styled-components";
+import {
+  getCourses,
+  createCourse,
+  updateCourse,
+  deleteCourse,
+} from "../../api";
 import CourseListItem from "./CourseListItem";
 import CourseForm from "./CourseForm";
 import TabMenu from "../TabMenu";
@@ -44,7 +49,11 @@ const CourseList = () => {
 
   const handleUpdate = async (updatedCourse) => {
     await updateCourse(updatedCourse);
-    setCourses(courses.map((course) => (course.id === updatedCourse.id ? updatedCourse : course)));
+    setCourses(
+      courses.map((course) =>
+        course.id === updatedCourse.id ? updatedCourse : course
+      )
+    );
   };
 
   const handleDelete = async (id) => {
@@ -59,7 +68,12 @@ const CourseList = () => {
       <StyledSubheader>Agregue un curso nuevo:</StyledSubheader>
       <CourseForm onSubmit={handleCreate} />
       {courses.map((course) => (
-        <CourseListItem key={course.id} course={course} onUpdate={handleUpdate} onDelete={handleDelete} />
+        <CourseListItem
+          key={course.id}
+          course={course}
+          onUpdate={handleUpdate}
+          onDelete={handleDelete}
+        />
       ))}
     </StyledContainer>
   );
