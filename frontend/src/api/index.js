@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "http://18.216.35.155:4000";
 
 // Students
 export const getStudents = async () => {
